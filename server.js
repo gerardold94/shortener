@@ -18,8 +18,15 @@
 */
 
 const { Ignitor } = require('@adonisjs/ignitor')
+const Sentry = require('@sentry/node')
+const environment = process.env.SENTRY_ENVIROMENT
+
+Sentry.init({
+  dsn: process.env.SENTRY_DNS,
+  environment
+})
 
 new Ignitor(require('@adonisjs/fold'))
   .appRoot(__dirname)
   .fireHttpServer()
-  .catch(console.error)
+  .catch(Sentry.captureException)
