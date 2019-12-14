@@ -30,6 +30,7 @@
     "@adonisjs/vow": "^1.0.17",
     "adonis-acl": "^1.1.1",
     "adonis-sentry": "^1.0.3",
+    "knex": "^0.20.4",
     "pg": "^7.8.0"
   },
   "devDependencies": {
